@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// next.config.mjs
+// @ts-ignore
+import autoCert from "anchor-pki/auto-cert/integrations/next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const withAutoCert = autoCert({
+  enabledEnv: "development",
+});
 
-export default nextConfig;
+const nextConfig = {};
+
+export default withAutoCert(nextConfig);
